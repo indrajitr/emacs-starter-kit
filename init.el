@@ -15,6 +15,9 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;; Benchmarking
+(defvar *emacs-load-start* (current-time))
+
 ;; Load path etc.
 
 (setq dotfiles-dir (file-name-directory
@@ -72,5 +75,11 @@
 (if (file-exists-p user-specific-config) (load user-specific-config))
 (if (file-exists-p user-specific-dir)
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
+
+;; Benchmarking
+(message "My .emacs loaded in %ds"
+         (destructuring-bind (hi lo ms) (current-time)
+           (- (+ hi lo) (+ (first *emacs-load-start*) (second
+                                                       *emacs-load-start*)))))
 
 ;;; init.el ends here
