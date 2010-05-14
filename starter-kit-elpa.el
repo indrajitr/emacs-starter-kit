@@ -10,7 +10,8 @@
                                    'css-mode
                                    'yaml-mode
                                    'magit
-                                   'gist)
+                                   'gist
+                                   'htmlize)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()
