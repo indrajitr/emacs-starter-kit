@@ -33,7 +33,7 @@
 
 (add-to-list 'load-path (concat dotfiles-dir "elpa-to-submit/"))
 
-(setq autoload-file (concat dotfiles-dir "loaddefs.el"))
+; (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq package-user-dir (concat dotfiles-dir "elpa"))
 
 ;; These should be loaded on startup rather than autoloaded on demand
@@ -61,7 +61,7 @@
 (require 'starter-kit-ruby)
 (require 'starter-kit-js)
 
-(regen-autoloads)
+; (regen-autoloads)
 
 ;; You can keep system- or user-specific customizations here
 (setq system-specific-config (concat dotfiles-dir system-name ".el")
