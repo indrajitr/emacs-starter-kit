@@ -35,7 +35,6 @@
 
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq package-user-dir (concat dotfiles-dir "elpa"))
-(setq custom-file (concat dotfiles-dir "custom.el"))
 
 ;; These should be loaded on startup rather than autoloaded on demand
 ;; since they are likely to be used in every session
@@ -63,7 +62,6 @@
 (require 'starter-kit-js)
 
 (regen-autoloads)
-(load custom-file 'noerror)
 
 ;; You can keep system- or user-specific customizations here
 (setq system-specific-config (concat dotfiles-dir system-name ".el")
