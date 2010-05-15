@@ -31,7 +31,7 @@
 (package-initialize)
 (require 'starter-kit-elpa)
 
-(add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
+(add-to-list 'load-path (concat dotfiles-dir "elpa-to-submit/"))
 
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq package-user-dir (concat dotfiles-dir "elpa"))
