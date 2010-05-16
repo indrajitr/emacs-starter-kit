@@ -36,6 +36,10 @@
 ; (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq package-user-dir (concat dotfiles-dir "elpa"))
 
+;; Load up other packages
+(add-to-list 'load-path (concat dotfiles-dir "vendor/yasnippet"))
+(add-to-list 'load-path (concat dotfiles-dir "vendor/auto-complete"))
+
 ;; These should be loaded on startup rather than autoloaded on demand
 ;; since they are likely to be used in every session
 
@@ -56,6 +60,8 @@
 (require 'starter-kit-misc)
 (require 'starter-kit-registers)
 (require 'starter-kit-eshell)
+(require 'starter-kit-yasnippet)
+(require 'starter-kit-autocomplete)
 (require 'starter-kit-lisp)
 (require 'starter-kit-perl)
 (require 'starter-kit-ruby)
