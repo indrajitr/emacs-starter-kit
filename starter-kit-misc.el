@@ -4,35 +4,48 @@
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
-  (tooltip-mode -1)
-  (mouse-wheel-mode t)
-  (blink-cursor-mode -1))
+  ; (tooltip-mode -1)
+  ; (blink-cursor-mode -1)
+  )
 
 (add-hook 'before-make-frame-hook 'turn-off-tool-bar)
 
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
-(ansi-color-for-comint-mode-on)
+; (ansi-color-for-comint-mode-on)
 
-(setq visible-bell t
-      echo-keystrokes 0.1
-      font-lock-maximum-decoration t
-      inhibit-startup-message t
-      transient-mark-mode t
-      color-theme-is-global t
-      shift-select-mode nil
-      mouse-yank-at-point t
+(setq inhibit-startup-message t
+      ; transient-mark-mode t
+      ; color-theme-is-global t
+      ; shift-select-mode nil
       require-final-newline t
-      truncate-partial-width-windows nil
       uniquify-buffer-name-style 'forward
-      whitespace-style '(trailing lines space-before-tab
-                                  indentation space-after-tab)
+      ; whitespace-style '(trailing lines space-before-tab
+      ;                             indentation space-after-tab)
       whitespace-line-column 100
-      ediff-window-setup-function 'ediff-setup-windows-plain
-      oddmuse-directory (concat dotfiles-dir "oddmuse")
-      xterm-mouse-mode t
-      save-place-file (concat dotfiles-dir "places"))
+      oddmuse-directory (concat dotfiles-dir "oddmuse") ; ??
+      )
+
+;; Stuff not necessary (or different) in Aquamacs but nice to have otherwise
+(unless (boundp 'aquamacs-version)
+  (setq mouse-wheel-mode t
+        xterm-mouse-mode t
+        visible-bell t
+        echo-keystrokes 0.1
+        font-lock-maximum-decoration t
+        mouse-yank-at-point t
+        truncate-partial-width-windows nil
+        ediff-window-setup-function 'ediff-setup-windows-plain
+        save-place-file (concat dotfiles-dir "places")))
+
+; (add-hook 'text-mode-hook 'linum-mode)
+(global-linum-mode t)
+; (setq linum-format (
+;   lambda (line) (
+;     propertize (format (
+;       let ((w (length (number-to-string (count-lines (point-min) (point-max)))))) (concat "%" (number-to-string w) "d ")) line) 'face 'linum)))
+(setq linum-format "%5d ")
 
 ;; Set this to whatever browser you use
 ;; (setq browse-url-browser-function 'browse-url-firefox)
@@ -45,16 +58,20 @@
 ;;       browse-url-generic-program "~/src/conkeror/conkeror")
 
 ;; Transparently open compressed files
-(auto-compression-mode t)
+(unless (boundp 'aquamacs-version) ; not necessary for Aquamacs
+  (auto-compression-mode t))
 
 ;; Enable syntax highlighting for older Emacsen that have it off
-(global-font-lock-mode t)
+(unless (boundp 'aquamacs-version) ; not necessary for Aquamacs
+  (global-font-lock-mode t))
 
 ;; Save a list of recent files visited.
-(recentf-mode 1)
+(unless (boundp 'aquamacs-version) ; not necessary for Aquamacs
+  (recentf-mode 1))
 
 ;; Highlight matching parentheses when the point is on them.
-(show-paren-mode 1)
+(unless (boundp 'aquamacs-version) ; not necessary for Aquamacs
+  (show-paren-mode 1))
 
 ;; ido-mode is like magic pixie dust!
 (when (> emacs-major-version 21)
@@ -131,7 +148,8 @@
   (setq system-name (car (split-string system-name "\\."))))
 
 ;; make emacs use the clipboard
-(setq x-select-enable-clipboard t)
+(unless (boundp 'aquamacs-version) ; not necessary for Aquamacs
+  (setq x-select-enable-clipboard t))
 
 ;; Get around the emacswiki spam protection
 (add-hook 'oddmuse-mode-hook
