@@ -39,6 +39,9 @@
 ;; Load up other packages
 (add-to-list 'load-path (concat dotfiles-dir "vendor/yasnippet"))
 (add-to-list 'load-path (concat dotfiles-dir "vendor/auto-complete"))
+(add-to-list 'load-path (concat dotfiles-dir "vendor/Scamacs/src/elisp/mvn"))
+(add-to-list 'load-path (concat dotfiles-dir "vendor/Scamacs/src/elisp/sbt"))
+(add-to-list 'load-path (concat dotfiles-dir "vendor/Scamacs/src/elisp/scala"))
 
 ;; These should be loaded on startup rather than autoloaded on demand
 ;; since they are likely to be used in every session
@@ -67,6 +70,7 @@
 (require 'starter-kit-ruby)
 (require 'starter-kit-js)
 (require 'starter-kit-xml)
+(require 'starter-kit-scala)
 
 ; (regen-autoloads)
 
