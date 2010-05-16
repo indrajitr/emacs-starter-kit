@@ -1,4 +1,4 @@
-;;; starter-kit-xml.el --- Some helpful Javascript helpers
+;;; starter-kit-xml.el --- Some helpful XML helpers
 ;;
 ;; NOT Part of the Emacs Starter Kit
 
