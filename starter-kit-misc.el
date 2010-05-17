@@ -37,6 +37,7 @@
         ediff-window-setup-function 'ediff-setup-windows-plain
         save-place-file (concat dotfiles-dir "places")))
 
+(initial-major-mode 'org-mode)
 ; (add-hook 'text-mode-hook 'linum-mode)
 (global-linum-mode t)
 ; (setq linum-format (
