@@ -13,11 +13,10 @@
 (prefer-coding-system 'utf-8)
 ; (ansi-color-for-comint-mode-on)
 
-(setq inhibit-startup-message t
+(setq 
       ; transient-mark-mode t
       ; color-theme-is-global t
       ; shift-select-mode nil
-      require-final-newline t
       uniquify-buffer-name-style 'forward
       ; whitespace-style '(trailing lines space-before-tab
       ;                             indentation space-after-tab)
@@ -25,19 +24,23 @@
       oddmuse-directory (concat dotfiles-dir "oddmuse") ; ??
       )
 
-;; Stuff not necessary (or different) in Aquamacs but nice to have otherwise
-(unless (boundp 'aquamacs-version)
-  (setq mouse-wheel-mode t
-        xterm-mouse-mode t
-        visible-bell t
-        echo-keystrokes 0.1
-        font-lock-maximum-decoration t
-        mouse-yank-at-point t
-        truncate-partial-width-windows nil
-        ediff-window-setup-function 'ediff-setup-windows-plain
-        save-place-file (concat dotfiles-dir "places")))
+;; Not necessary in Emacs 23
+(when (< emacs-major-version 23)
+  (setq truncate-partial-width-windows nil
+        font-lock-maximum-decoration t))
 
-(initial-major-mode 'org-mode)
+;; Not necessary (or different) in Aquamacs
+(unless (boundp 'aquamacs-version)
+  (setq echo-keystrokes 0.1
+        inhibit-startup-message t
+        ; visible-bell t        
+        ; mouse-yank-at-point t
+        ediff-window-setup-function 'ediff-setup-windows-plain
+        ; save-place-file (concat dotfiles-dir "places")
+        )
+  (xterm-mouse-mode))
+
+(setq initial-major-mode 'org-mode)
 ; (add-hook 'text-mode-hook 'linum-mode)
 (global-linum-mode t)
 ; (setq linum-format (
@@ -142,11 +145,12 @@
                       'mumamo-background-chunk-submode "gray22"))))
 
 ;; Platform-specific stuff
+
 (when (eq system-type 'darwin)
   ;; Work around a bug on OS X where system-name is FQDN
   (setq system-name (car (split-string system-name "\\."))))
 
-;; make emacs use the clipboard
+;; Make emacs use the clipboard
 (unless (boundp 'aquamacs-version) ; not necessary for Aquamacs
   (setq x-select-enable-clipboard t))
 
