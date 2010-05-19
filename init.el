@@ -31,14 +31,14 @@
 (package-initialize)
 (require 'starter-kit-elpa)
 
-(add-to-list 'load-path (concat dotfiles-dir "elpa-to-submit/"))
+(setq packages-dir (list (concat dotfiles-dir "elpa-to-submit/")
+                         (concat dotfiles-dir "vendor/yasnippet/")
+                         (concat dotfiles-dir "vendor/auto-complete/")
+                         (concat dotfiles-dir "vendor/Scamacs/src/elisp/mvn/")
+                         (concat dotfiles-dir "vendor/Scamacs/src/elisp/sbt/")
+                         (concat dotfiles-dir "vendor/Scamacs/src/elisp/scala/")))
 
-;; Load up other packages
-(add-to-list 'load-path (concat dotfiles-dir "vendor/yasnippet/"))
-(add-to-list 'load-path (concat dotfiles-dir "vendor/auto-complete/"))
-(add-to-list 'load-path (concat dotfiles-dir "vendor/Scamacs/src/elisp/mvn/"))
-(add-to-list 'load-path (concat dotfiles-dir "vendor/Scamacs/src/elisp/sbt/"))
-(add-to-list 'load-path (concat dotfiles-dir "vendor/Scamacs/src/elisp/scala/"))
+(mapc (lambda (d) (add-to-list 'load-path d)) packages-dir)
 
 ; (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq package-user-dir (concat dotfiles-dir "elpa"))
