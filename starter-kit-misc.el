@@ -43,11 +43,14 @@
 (setq initial-major-mode 'org-mode)
 ; (add-hook 'text-mode-hook 'linum-mode)
 (global-linum-mode t)
-; (setq linum-format (
-;   lambda (line) (
-;     propertize (format (
-;       let ((w (length (number-to-string (count-lines (point-min) (point-max)))))) (concat "%" (number-to-string w) "d ")) line) 'face 'linum)))
-(setq linum-format "%5d ")
+
+(setq linum-format (lambda (line)
+                     (propertize
+                      (format
+                       (let ((w (length (number-to-string (count-lines (point-min) (point-max)))))) (concat " %" (number-to-string w) "d "))
+                       line)
+                      'face 'linum)))
+;; (setq linum-format "%5d ")
 
 ;; Set this to whatever browser you use
 ;; (setq browse-url-browser-function 'browse-url-firefox)
