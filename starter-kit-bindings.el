@@ -40,7 +40,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Window switching. (C-x o goes to the next window)
-(windmove-default-keybindings) ;; Shift+direction
+;; (windmove-default-keybindings) ;; Shift+direction
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
 
@@ -89,6 +89,9 @@
 ;; Org
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
+
+;; Custom keymaps
+(define-key osx-key-mode-map (kbd "A-/") 'comment-or-uncomment-region-or-line)
 
 (provide 'starter-kit-bindings)
 ;;; starter-kit-bindings.el ends here
