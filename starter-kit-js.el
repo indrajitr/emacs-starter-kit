@@ -8,16 +8,21 @@
 (add-hook 'js-mode-hook 'run-coding-hook)
 (setq js-indent-level 2)
 
+;; Cosmetic
+
+(defun pretty-functions ()
+  (font-lock-add-keywords
+   nil `(("(?\\(function\\>\\)"
+          (0 (progn (compose-region (match-beginning 1) (match-end 1) "ƒ")
+                    nil))))))
+(add-hook 'coding-hook 'pretty-functions)
+
+
 (eval-after-load 'js
   '(progn (define-key js-mode-map "{" 'paredit-open-brace)
           (define-key js-mode-map "}" 'paredit-close-brace-and-newline)
-          ;; fixes problem with pretty function font-lock
-          (define-key js-mode-map (kbd ",") 'self-insert-command)
-          (font-lock-add-keywords
-           'js-mode `(("\\(function *\\)("
-                             (0 (progn (compose-region (match-beginning 1)
-                                                       (match-end 1) "ƒ")
-                                       nil)))))))
+          ;; (define-key js-mode-map (kbd ",") 'self-insert-command)
+          ))
 
 (provide 'starter-kit-js)
 ;;; starter-kit-js.el ends here
