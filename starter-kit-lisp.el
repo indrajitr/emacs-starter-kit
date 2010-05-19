@@ -40,6 +40,16 @@
   (interactive)
   (message "Deprecated in favour of M-x swank-clojure-project. Install swank-clojure from ELPA."))
 
+;; Cosmetic
+
+(defun pretty-lambdas ()
+  (font-lock-add-keywords
+   nil `(("(?\\(lambda\\>\\)"
+          (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                    (make-char 'greek-iso8859-7 107))
+                    nil))))))
+(add-hook 'coding-hook 'pretty-lambdas)
+
 ;;; Enhance Lisp Modes
 
 (eval-after-load 'paredit
