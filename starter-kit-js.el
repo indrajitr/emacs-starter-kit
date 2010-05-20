@@ -6,6 +6,7 @@
 (add-hook 'js-mode-hook 'moz-minor-mode)
 (add-hook 'js-mode-hook 'esk-paredit-nonlisp)
 (add-hook 'js-mode-hook 'run-coding-hook)
+(add-hook 'js-mode-hook 'pretty-functions)
 (setq js-indent-level 2)
 
 ;; Cosmetic
@@ -15,7 +16,6 @@
    nil `(("(?\\(function\\>\\)"
           (0 (progn (compose-region (match-beginning 1) (match-end 1) "ƒ")
                     nil))))))
-(add-hook 'coding-hook 'pretty-functions)
 
 
 (eval-after-load 'js

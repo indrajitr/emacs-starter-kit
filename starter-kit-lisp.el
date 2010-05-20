@@ -48,7 +48,6 @@
           (0 (progn (compose-region (match-beginning 1) (match-end 1)
                                     (make-char 'greek-iso8859-7 107))
                     nil))))))
-(add-hook 'coding-hook 'pretty-lambdas)
 
 ;;; Enhance Lisp Modes
 
@@ -64,7 +63,9 @@
   (add-hook
    (intern (concat (symbol-name x) "-mode-hook")) 'turn-on-paredit)
   (add-hook
-   (intern (concat (symbol-name x) "-mode-hook")) 'run-coding-hook))
+   (intern (concat (symbol-name x) "-mode-hook")) 'run-coding-hook)
+  (add-hook
+   (intern (concat (symbol-name x) "-mode-hook")) 'pretty-lambdas))
 
 (provide 'starter-kit-lisp)
 ;; starter-kit-lisp.el ends here
