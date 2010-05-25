@@ -13,7 +13,7 @@
 
 (defun pretty-functions ()
   (font-lock-add-keywords
-   nil `(("(?\\(function\\>\\)"
+   nil `(("(\\(function\\>\\)"
           (0 (progn (compose-region (match-beginning 1) (match-end 1) "ƒ")
                     nil))))))
 
