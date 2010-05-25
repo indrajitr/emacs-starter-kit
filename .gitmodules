@@ -7,3 +7,6 @@
 [submodule "vendor/Scamacs"]
 	path = vendor/Scamacs
 	url = http://github.com/indrajitr/Scamacs.git
+[submodule "vendor/ecb"]
+	path = vendor/ecb
+	url = git://github.com/emacsmirror/ecb.git
