@@ -91,6 +91,8 @@
 (define-key global-map "\C-ca" 'org-agenda)
 
 ;; Custom keymaps
+(global-set-key (kbd "A-w") 'tabbar-close-tab)
+; (global-set-key (kbd "A-T") 'recentf-open-most-recent-file)
 (define-key osx-key-mode-map (kbd "A-/") 'comment-or-uncomment-region-or-line)
 
 (provide 'starter-kit-bindings)
