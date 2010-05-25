@@ -90,6 +90,15 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 
+;; Dired
+(setq dired-find-alternate-file 'disabled nil)
+(add-hook 'dired-mode-hook
+          (lambda ()
+            ;; (define-key dired-mode-map (kbd "<return>") 'dired-find-alternate-file) ; was dired-advertised-find-file
+            (define-key dired-mode-map (kbd "^")
+              (lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
+            ))
+
 ;; Custom keymaps
 (global-set-key (kbd "A-w") 'tabbar-close-tab)
 ; (global-set-key (kbd "A-T") 'recentf-open-most-recent-file)
