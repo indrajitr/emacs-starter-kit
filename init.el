@@ -34,9 +34,11 @@
 (setq packages-dir (list (concat dotfiles-dir "elpa-to-submit/")
                          (concat dotfiles-dir "vendor/yasnippet/")
                          (concat dotfiles-dir "vendor/auto-complete/")
-                         (concat dotfiles-dir "vendor/Scamacs/src/elisp/mvn/")
-                         (concat dotfiles-dir "vendor/Scamacs/src/elisp/sbt/")
-                         (concat dotfiles-dir "vendor/Scamacs/src/elisp/scala/")))
+                         (concat dotfiles-dir "vendor/ecb/")
+                         (concat dotfiles-dir "vendor/scamacs/src/elisp/mvn/")
+                         (concat dotfiles-dir "vendor/scamacs/src/elisp/sbt/")
+                         (concat dotfiles-dir "vendor/scamacs/src/elisp/scala/")
+                         (concat dotfiles-dir "vendor/ensime/src/main/elisp/")))
 
 (mapc (lambda (d) (add-to-list 'load-path d)) packages-dir)
 
