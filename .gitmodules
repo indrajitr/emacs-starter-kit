@@ -7,9 +7,6 @@
 [submodule "vendor/ecb"]
 	path = vendor/ecb
 	url = http://github.com/emacsmirror/ecb.git
-[submodule "vendor/scamacs"]
-	path = vendor/Scamacs
-	url = http://github.com/indrajitr/Scamacs.git
 [submodule "vendor/ensime"]
 	path = vendor/ensime
 	url = http://github.com/aemoncannon/ensime.git
