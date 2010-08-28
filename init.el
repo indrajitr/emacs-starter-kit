@@ -35,9 +35,7 @@
                          (concat dotfiles-dir "vendor/yasnippet/")
                          (concat dotfiles-dir "vendor/auto-complete/")
                          (concat dotfiles-dir "vendor/ecb/")
-                         (concat dotfiles-dir "vendor/scamacs/src/elisp/mvn/")
-                         (concat dotfiles-dir "vendor/scamacs/src/elisp/sbt/")
-                         (concat dotfiles-dir "vendor/scamacs/src/elisp/scala/")
+                         (concat dotfiles-dir "vendor/scala-mode/")
                          (concat dotfiles-dir "vendor/ensime/src/main/elisp/")))
 
 (mapc (lambda (d) (add-to-list 'load-path d)) packages-dir)

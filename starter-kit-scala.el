@@ -9,8 +9,8 @@
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ; TODO: move to more common location
-(require 'mvn)
-(require 'sbt)
+;(require 'mvn)
+;(require 'sbt)
 
 (provide 'starter-kit-scala)
 ;;; starter-kit-scala.el ends here
