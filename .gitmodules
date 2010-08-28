@@ -9,4 +9,4 @@
 	url = http://github.com/emacsmirror/ecb.git
 [submodule "vendor/ensime"]
 	path = vendor/ensime
-	url = http://github.com/aemoncannon/ensime.git
+	url = http://github.com/indrajitr/ensime.git
